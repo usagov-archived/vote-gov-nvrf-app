@@ -52,25 +52,23 @@ function Addresses(props) {
         <>
           <div className="input-parent">
             <Fieldset className="fieldset">
-            {!changeRegistrationVisible && (
-              <legend className='usa-hint'
-                    id='addresses-checkbox-hint'>{noAddressCheckboxInstructions}</legend>
-            )}
-            {changeRegistrationVisible && (
-              <>
-                <legend className='usa-hint'
-                      id='addresses-checkbox-hint'>{movedAndNoAddressCheckboxInstructions}</legend>
+              <legend className="usa-hint"
+                      id="addresses-checkbox-hint">
+                {!changeRegistrationVisible ? noAddressCheckboxInstructions : movedAndNoAddressCheckboxInstructions}
+              </legend>
+
+              {changeRegistrationVisible && (
                 <Checkbox id="prev-address" name="prev-address"
-                          data-test="checkBox" checked={props.hasPreviousAddress}
+                          data-test="checkbox-prev-address"
+                          checked={props.hasPreviousAddress}
                           onChange={props.onChangePreviousAddressCheckbox}
                           label={prevAddressField.label}/>
-              </>
-            )}
-            <Checkbox id="no-address" aria-describedby="no-address_alert"
-                      className="margin-bottom-4" name="no-addr"
-                      data-test="checkBox" checked={props.hasNoAddress}
-                      onChange={props.hasNoAddressCheckbox}
-                      label={noAddressField.label}/>
+              )}
+              <Checkbox id="no-address" aria-describedby="no-address_alert"
+                        className="margin-bottom-4" name="no-addr"
+                        data-test="checkbox-no-address" checked={props.hasNoAddress}
+                        onChange={props.hasNoAddressCheckbox}
+                        label={noAddressField.label}/>
             </Fieldset>
           </div>
           {/******** Current Address Block *********/}
@@ -115,13 +113,15 @@ function Addresses(props) {
                   <CurrentZipCode {...props} />
                 </Grid>
               </Grid>
-              <Fieldset>
-                <Checkbox data-test="checkBox" className="margin-top-3"
-                          id="alt-mail-addr" name="alt-mail-addr"
-                          checked={props.hasMailAddress}
-                          onChange={props.onChangeMailAddressCheckbox}
-                          label={differentMailAddressField.label}/>
-              </Fieldset>
+              <div className="input-parent">
+                <Fieldset className="fieldset">
+                  <Checkbox data-test="checkbox-mail-address" className="margin-top-3"
+                            id="alt-mail-addr" name="alt-mail-addr"
+                            checked={props.hasMailAddress}
+                            onChange={props.onChangeMailAddressCheckbox}
+                            label={differentMailAddressField.label}/>
+                </Fieldset>
+              </div>
             </>
           )}
           {/******* END BLOCK *********/}

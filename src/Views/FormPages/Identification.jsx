@@ -45,11 +45,12 @@ function Identification(props) {
         </div>)}
 
       {(stateData.abbrev === "mo") ? (
-        <div className="input-parent" data-test="checkBox">
+        <div className="input-parent">
           <Fieldset className="fieldset">
-            <Checkbox id="id-none" name="id-none" checked={props.hasNoID}
-                    onChange={props.onChangeHasNoIdCheckbox}
-                    label={noIdField.label}/>
+            <Checkbox data-test="checkbox-no-id" id="id-none" name="id-none"
+                      checked={props.hasNoID}
+                      onChange={props.onChangeHasNoIdCheckbox}
+                      label={noIdField.label}/>
           </Fieldset>
         </div>
       ) : (

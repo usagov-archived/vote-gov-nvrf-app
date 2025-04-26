@@ -233,9 +233,10 @@ function Confirmation(props) {
           </div>
         </div>)}
 
-      <div className="input-parent" data-test="confirm">
+      <div className="input-parent">
         <Fieldset className="fieldset"  onBlur={(e) => toggleError(e, !props.hasAcknowledged)}>
           <Checkbox
+            data-test="checkbox-confirm"
             id="acknowledge-checkbox"
             name="acknowledge-check"
             aria-describedby="acknowledge-check-alert"

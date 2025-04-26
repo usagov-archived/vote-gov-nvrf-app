@@ -42,16 +42,17 @@ function PersonalInfo(props) {
       <h2>{step.step_label}</h2>
 
       {changeRegistrationVisible && (
-        <div className="input-parent" data-test="checkBox">
+        <div className="input-parent">
           <Fieldset className="fieldset">
             <Checkbox id="prev-name-change"
+                      data-test="checkbox-prev-name"
                       aria-describedby="prev-name-change_alert"
                       name="prev-name-change"
                       checked={props.previousName}
                       onChange={props.onChangePreviousName}
                       label={nameChangeLabel}/>
           </Fieldset>
-        </div>  
+        </div>
       )}
 
       <div id="prev-name-change_alert" className="usa-alert usa-alert--info"
